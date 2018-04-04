@@ -1,0 +1,31 @@
+{
+  "name": "WP Auto Add Post",
+  "version": "1.0",
+  "description": "This extension will auto add post in wordpress",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "js": ["jquery.min.js"],
+      "matches": [ "http://*/*", "https://*/*"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "<all_urls>",
+        "*://*/Extensions*"
+      ],
+      "run_at": "document_end",
+      "js": ["handle.google.js"]//,"run_at": "document_end"
+    }
+  ],
+  "background":{
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action":
+  {
+    "icon": "icon.png",
+    "default_popup":"popup.html"
+  },
+  "manifest_version": 2
+}
